@@ -26,3 +26,4 @@ class Ui_Form(object):
         _translate = QtCore.QCoreApplication.translate
         Form.setWindowTitle(_translate("Form", "Form"))
         self.b1.setText(_translate("Form", "Рисовать"))
+

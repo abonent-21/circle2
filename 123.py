@@ -7,14 +7,15 @@ from random import randint
 from script import Ui_Form
 
 
-class Example(QWidget):
+class Example(QWidget, Ui_Form):
     def __init__(self):
         super().__init__()
         self.initUI()
 
     def initUI(self):
-        form = Ui_Form()
-        form.b1.clicked.connect(self.p1)
+        self.ui = Ui_Form()
+        self.ui.setupUi(self)
+        self.ui.b1.clicked.connect(self.p1)
         self.do_paint = False
         self.diametr = 0
 
@@ -26,7 +27,7 @@ class Example(QWidget):
             qp.end()
 
     def draw_flag(self, qp):
-        qp.setBrush(QColor(255, 255, 0))
+        qp.setBrush(QColor(randint(0, 255), randint(0, 255), randint(0, 255)))
         d = self.diametr
         qp.drawEllipse(100, 40, d, d)
 
